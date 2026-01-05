@@ -1,31 +1,31 @@
 "use client";
 
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
 import Link from "next/link";
 
 export default function SimpleChoicesPage() {
   const [answer, setAnswer] = useState<null | "correct" | "wrong">(null);
 
-  /* AUDIO */
+  /* AUDIO (browser-only) */
   const correctSoundRef = useRef<HTMLAudioElement | null>(null);
   const wrongSoundRef = useRef<HTMLAudioElement | null>(null);
 
-  if (!correctSoundRef.current) {
+  useEffect(() => {
+    // This runs ONLY in the browser (safe)
     correctSoundRef.current = new Audio("/sounds/correct.mp3");
-  }
-
-  if (!wrongSoundRef.current) {
     wrongSoundRef.current = new Audio("/sounds/wrong.mp3");
-  }
+  }, []);
 
   const playCorrect = () => {
-    correctSoundRef.current!.currentTime = 0;
-    correctSoundRef.current?.play();
+    if (!correctSoundRef.current) return;
+    correctSoundRef.current.currentTime = 0;
+    correctSoundRef.current.play();
   };
 
   const playWrong = () => {
-    wrongSoundRef.current!.currentTime = 0;
-    wrongSoundRef.current?.play();
+    if (!wrongSoundRef.current) return;
+    wrongSoundRef.current.currentTime = 0;
+    wrongSoundRef.current.play();
   };
 
   return (
@@ -50,27 +50,18 @@ export default function SimpleChoicesPage() {
           </p>
         </div>
 
+        {/* BREADCRUMBS */}
         <div className="mb-8 text-sm text-white/80">
-  <Link href="/" className="hover:text-green-300">
-    Home
-  </Link>
-  {" / "}
-  <Link href="/children" className="hover:text-green-300">
-    Children
-  </Link>
-  {" / "}
-  <Link
-    href="/children/little-explorers"
-    className="hover:text-green-300"
-  >
-    Little Explorers
-  </Link>
-  {" / "}
-  <span className="text-white font-semibold">
-    Simple Choices
-  </span>
-</div>
-
+          <Link href="/" className="hover:text-green-300">Home</Link>
+          {" / "}
+          <Link href="/children" className="hover:text-green-300">Children</Link>
+          {" / "}
+          <Link href="/children/little-explorers" className="hover:text-green-300">
+            Little Explorers
+          </Link>
+          {" / "}
+          <span className="text-white font-semibold">Simple Choices</span>
+        </div>
 
         {/* GAME */}
         <div className="bg-white/90 rounded-3xl p-8 shadow-md mb-16">
@@ -83,7 +74,7 @@ export default function SimpleChoicesPage() {
           </p>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            {/* OPTION 1 — CORRECT */}
+            {/* OPTION — CORRECT */}
             <button
               onClick={() => {
                 setAnswer("correct");
@@ -94,7 +85,7 @@ export default function SimpleChoicesPage() {
               📘 Read a book or learn something new
             </button>
 
-            {/* OPTION 2 — WRONG */}
+            {/* OPTION — WRONG */}
             <button
               onClick={() => {
                 setAnswer("wrong");
@@ -106,7 +97,7 @@ export default function SimpleChoicesPage() {
             </button>
           </div>
 
-          {/* FEEDBACK (reserved space) */}
+          {/* FEEDBACK (space reserved) */}
           <div className="mt-6 min-h-[40px]">
             {answer === "correct" && (
               <p className="text-green-700 font-medium">
