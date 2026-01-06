@@ -68,7 +68,7 @@ export default function RootLayout({
       <body className="m-0">
         {/* TOP NAVIGATION */}
         <nav className="fixed top-0 left-0 right-0 z-50 bg-black/40 backdrop-blur-sm">
-          <div className="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between text-sm">
+          <div className="max-w-6xl mx-auto px-6 py-5 flex items-center justify-between text-base">
             {/* Desktop menu */}
             <div className="hidden md:flex gap-6">
               <NavLink href="/" label="Home" />
@@ -113,11 +113,11 @@ export default function RootLayout({
         </nav>
 
         {/* PAGE CONTENT */}
-        <div className="pt-24">
+        <div className="pt-13">
           {children}
 
           {/* FOOTER */}
-          <footer className="mt-24 bg-black/40 backdrop-blur-sm text-white">
+          <footer className="bg-black/40 backdrop-blur-sm text-white">
             <div className="max-w-6xl mx-auto px-6 py-10 grid grid-cols-1 md:grid-cols-3 gap-8 text-sm">
               <div>
                 <h3 className="font-semibold mb-2">Invest for Myself</h3>

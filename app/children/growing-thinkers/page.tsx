@@ -8,8 +8,8 @@ export default function GrowingThinkersPage() {
         backgroundImage: "url('/InvestForMySelf_Background_Homepage.png')",
       }}
     >
-      {/* OVERLAY */}
-      <div className="absolute inset-0 bg-black/15" />
+      {/* OVERLAY — must NOT block clicks */}
+      <div className="absolute inset-0 bg-black/15 pointer-events-none" />
 
       <div className="relative z-10 max-w-5xl mx-auto pt-16">
 
@@ -44,14 +44,13 @@ export default function GrowingThinkersPage() {
         {/* ACTIVITIES / CARDS */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
 
-          {/* CARD 1 */}
+          {/* CARD 1 — SMART DECISIONS */}
           <Link
-  href="#"
-  className="group relative overflow-hidden bg-white/90 rounded-3xl p-8 shadow-md transition-all duration-300 hover:shadow-lg hover:scale-[1.03]"
->
-
+            href="/children/growing-thinkers/smart-decisions"
+            className="group relative overflow-hidden bg-white/90 rounded-3xl p-8 shadow-md transition-all duration-300 hover:shadow-lg hover:scale-[1.03]"
+          >
             <h2 className="text-2xl font-semibold mb-2">
-              🧠 Smart Decisions
+              💡 Smart Decisions
             </h2>
             <p className="text-gray-700">
               Practice thinking ahead and choosing wisely.
@@ -61,12 +60,11 @@ export default function GrowingThinkersPage() {
             <div className="absolute bottom-0 left-0 h-1 w-0 bg-green-500 transition-all duration-300 group-hover:w-full" />
           </Link>
 
-          {/* CARD 2 */}
+          {/* CARD 2 — PLANNING AHEAD (placeholder) */}
           <Link
-  href="#"
-  className="group relative overflow-hidden bg-white/90 rounded-3xl p-8 shadow-md transition-all duration-300 hover:shadow-lg hover:scale-[1.03]"
->
-
+             href="/children/growing-thinkers/planning-ahead"
+             className="group relative overflow-hidden bg-white/90 rounded-3xl p-8 shadow-md transition-all duration-300 hover:shadow-lg hover:scale-[1.03]"
+            >
             <h2 className="text-2xl font-semibold mb-2">
               📊 Planning Ahead
             </h2>

@@ -22,6 +22,19 @@ export default function ChildrenPage() {
           </p>
         </div>
 
+        {/* VALUES NOTE */}
+<div className="bg-black/20 backdrop-blur-sm rounded-3xl px-6 py-5 shadow-md mb-10">
+  <p className="text-white/90 text-center text-lg leading-relaxed">
+    We believe children learn best away from screens.
+    <br className="hidden sm:block" />
+    When screens are used, they should be{" "}
+    <span className="font-semibold text-green-300">
+      gentle, meaningful, and limited
+    </span>.
+  </p>
+</div>
+
+
         {/* AGE GROUPS */}
 <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
 
