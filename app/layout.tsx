@@ -4,6 +4,7 @@ import "./globals.css";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
+import Image from "next/image";
 
 function NavLink({
   href,
@@ -68,16 +69,38 @@ export default function RootLayout({
       <body className="m-0">
         {/* TOP NAVIGATION */}
         <nav className="fixed top-0 left-0 right-0 z-50 bg-black/40 backdrop-blur-sm">
-          <div className="max-w-6xl mx-auto px-6 py-5 flex items-center justify-between text-base">
+          <div className="w-full px-6 py-5 flex items-center justify-between text-base">
+
             {/* Desktop menu */}
-            <div className="hidden md:flex gap-6">
-              <NavLink href="/" label="Home" />
-              <NavLink href="/children" label="Children" />
-              <NavLink href="/teens" label="Teens" />
-              <NavLink href="/adults" label="Adults" />
-              <NavLink href="/seniors" label="Seniors" />
-              <NavLink href="/contact" label="Contact" />
-            </div>
+<div className="hidden md:flex items-center gap-6">
+  {/* Brand */}
+  <Link
+    href="/"
+    className="flex items-center gap-1 text-white font-semibold tracking-wide hover:text-green-200 transition"
+  >
+    <Image
+  src="/logo.png"
+  alt="Invest for Myself"
+  width={32}
+  height={32}
+  className="object-contain"
+/>
+
+    <span>Invest for Myself</span>
+  </Link>
+
+  {/* Divider (optional but nice) */}
+  <span className="h-6 w-px bg-white/20" />
+
+  {/* Navigation links */}
+  <NavLink href="/" label="Home" />
+  <NavLink href="/children" label="Children" />
+  <NavLink href="/teens" label="Teens" />
+  <NavLink href="/adults" label="Adults" />
+  <NavLink href="/seniors" label="Seniors" />
+  <NavLink href="/contact" label="Contact" />
+</div>
+
 
             {/* Mobile header */}
             <div className="md:hidden flex items-center gap-3">

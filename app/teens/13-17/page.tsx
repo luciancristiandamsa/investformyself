@@ -13,8 +13,9 @@ export default function Teens13to17Page() {
 
       <div className="relative z-10">
         <section className="max-w-5xl mx-auto pt-16">
+
           {/* HERO */}
-          <div className="inline-block bg-black/30 backdrop-blur-sm rounded-3xl px-8 py-6 shadow-lg mb-12">
+          <div className="inline-block bg-black/30 backdrop-blur-sm rounded-3xl px-8 py-6 shadow-lg mb-8">
             <h1 className="text-4xl font-extrabold text-white">
               🧠 Ages 13–17
             </h1>
@@ -23,8 +24,23 @@ export default function Teens13to17Page() {
             </p>
           </div>
 
+          {/* BREADCRUMBS (same position as Children pages) */}
+          <div className="mb-8 text-sm text-white/80">
+            <Link href="/" className="hover:text-green-300 transition">
+              Home
+            </Link>
+            {" / "}
+            <Link href="/teens" className="hover:text-green-300 transition">
+              Teens
+            </Link>
+            {" / "}
+            <span className="text-white font-semibold">
+              Ages 13–17
+            </span>
+          </div>
+
           {/* INTRO */}
-          <div className="bg-white/90 backdrop-blur-sm rounded-3xl p-8 shadow-md mb-16">
+          <div className="bg-white/80 backdrop-blur-sm rounded-3xl p-8 shadow-md mb-16">
             <p className="text-gray-700 leading-relaxed">
               This stage is about building the base. You’re learning how to focus,
               manage emotions, and make better choices — one small step at a time.
@@ -103,6 +119,7 @@ export default function Teens13to17Page() {
               ← Back to Teens
             </Link>
           </div>
+
         </section>
       </div>
     </main>
